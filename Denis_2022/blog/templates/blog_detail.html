@@ -14,7 +14,7 @@
     <p>{{ post.body | linebreaks }}</p>
     <h3>Оставьте комментарий:</h3>
     <form action="/blog/{{ post.pk }}/" method="post">
-        {% crf_token %}
+        {% csrf_token %}
         <div class="form-group">
             {{ form.author }}
         </div>
@@ -26,8 +26,8 @@
     <h3>Комментарии:</h3>
     {% for comment in comments %}
     <p>
-        On {{comment.created_on.date }}
-        <b>{{comment.author }}</b> wrote:
+         {{comment.created_on.date }}
+        <b>{{comment.author }}</b> оставил комментарий:
     </p>
     <p>{{ comment.body }}</p>
     <hr>
